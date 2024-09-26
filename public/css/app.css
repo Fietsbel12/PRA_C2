@@ -80,6 +80,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 
+/* nieuw stuk code */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 30px !important;
+}
+
+/* nieuw stuk code */
+.container .row {
+    background-color: #f0f0f0;
+}
+
 p {
     margin-top: 0;
     margin-bottom: 1rem;
