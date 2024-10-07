@@ -20,4 +20,5 @@ class BrandController extends Controller
         ]);
 
     }
+
 }

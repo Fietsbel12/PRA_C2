@@ -13,6 +13,7 @@
     </h1>
 
 
+
     <?php
     $size = count($brands);
     $columns = 3;
@@ -20,6 +21,7 @@
     ?>
 
     <div class="container">
+        <h2>{{$name}}</h2>
         <!-- Example row of columns -->
         <div class="row">
 
