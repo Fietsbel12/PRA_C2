@@ -37,7 +37,7 @@ use App\Http\Controllers\LocaleController;
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
-    $name = 'Lotus';    
+    $name = 'Lotus';
     return view('pages.homepage')
         ->with('brands', $brands)
         ->with('name', $name);
@@ -53,6 +53,10 @@ Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale
 
 // List of manuals for a brand
 Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
+
+// update voor de brand controller
+Route::get('/brands/{brand_id}/{brand_slug}', [BrandController::class, 'edit'])->name('brands.edit');
+Route::post('/brands/{brand_id}/{brand_slug}', [BrandController::class, 'update'])->name('brands.update');
 
 // Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);

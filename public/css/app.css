@@ -91,6 +91,27 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #f0f0f0;
 }
 
+/* nieuw stuk code */
+/* Zorg ervoor dat de volledige viewport-hoogte wordt gebruikt */
+.full-height {
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* Horizontaal centreren */
+    align-items: center;      /* Verticaal centreren */
+}
+
+.centered-content {
+    text-align: center; /* Centraal uitlijnen van de inhoud */
+    width: 100%;        /* Volledige breedte nemen */
+}
+
+.row {
+    display: flex;
+    justify-content: center;  /* Rijen in het midden zetten */
+}
+
+
+
 p {
     margin-top: 0;
     margin-bottom: 1rem;
