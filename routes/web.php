@@ -58,9 +58,11 @@ Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
 Route::get('/brands/{brand_id}/{brand_slug}', [BrandController::class, 'edit'])->name('brands.edit');
 Route::post('/brands/{brand_id}/{brand_slug}', [BrandController::class, 'update'])->name('brands.update');
 
-// Detail page for a manual 
+// Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);
 
 // Generate sitemaps
 Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
+// update database
+Route::Post('brands/{brand_id}/{brand_slug}', [BrandController::class, 'update'])->name('brands.update');
