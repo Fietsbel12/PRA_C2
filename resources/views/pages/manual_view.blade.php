@@ -21,4 +21,17 @@
         <a href="{{ $manual->url }}" target="new" alt="Download your manual here" title="Download your manual here">Click here to download the manual</a>
     @endif
 
+    <div class="manual">
+        <h1>{{ $manual->title }}</h1>
+        <p><strong>Merk:</strong> {{ $manual->brand }}</p>
+        <p><strong>Type:</strong> {{ $manual->type }}</p>
+        <p><strong>Aantal keer bekeken:</strong> {{ $manual->views }}</p>
+
+        <div class="manual-content">
+            {!! $manual->content !!}
+        </div>
+
+        <a href="{{ route('home') }}">Terug naar de homepage</a>
+    </div>
+
 </x-layouts.app>

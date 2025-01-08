@@ -21,7 +21,7 @@ class BrandController extends Controller
     }
 
     public function update(Request $request, $brand_id)
-{
+    {
     // Validatie van de inkomende data
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
@@ -37,5 +37,5 @@ class BrandController extends Controller
     // Terugsturen naar een pagina of view
     return redirect()->route('brands.edit', ['brand_id' => $brand_id, 'brand_slug' => $brand->slug])
                      ->with('success', 'Brand updated successfully!');
-}
+    }
 }

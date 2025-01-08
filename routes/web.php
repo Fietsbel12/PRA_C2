@@ -33,15 +33,21 @@ use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
+use App\Models\Manual;
 
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
     $name = 'Lotus';
+    $topManuals = Manual::orderBy('views', 'desc')->take(10)->get();
     return view('pages.homepage')
         ->with('brands', $brands)
-        ->with('name', $name);
+        ->with('name', $name)
+        ->with('topManuals', $topManuals);
 })->name('home');
+
+// link voor view update
+Route::get('link/{manual_id}/',[ManualController::class, 'link']);
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);
@@ -66,3 +72,9 @@ Route::get('/generateSitemap/', [SitemapController::class, 'generate']);
 
 // update database
 Route::Post('brands/{brand_id}/{brand_slug}', [BrandController::class, 'update'])->name('brands.update');
+
+Route::get('/manuals/{id}', [ManualController::class, 'show'])->name('manuals.show');
+
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->middleware('auth');
+
+Route::get('/brand/{brand}', [ManualController::class, 'showByBrand'])->name('manuals.byBrand');
